@@ -1,5 +1,5 @@
-package at.finn.games;
-import at.finn.objects.*;
+package at.finn.games.figures;
+import at.finn.games.figures.objects.*;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class Main extends BasicGame
         Random random = new Random();
         for (int i = 0; i < 10; i++)
         {
-            Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(600), random.nextInt(50), Rectangle.Direction.left);
+            Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(600), random.nextInt(50), Rectangle.Direction.right);
             this.actors.add(rectangle);
         }
         for (int i = 0; i < 10; i++)

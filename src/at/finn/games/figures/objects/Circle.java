@@ -1,6 +1,6 @@
-package at.finn.objects;
+package at.finn.games.figures.objects;
 
-import at.finn.games.Actor;
+import at.finn.games.figures.Actor;
 import org.newdawn.slick.Graphics;
 
 public class Circle implements Actor

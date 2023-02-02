@@ -1,5 +1,5 @@
-package at.finn.objects;
-import at.finn.games.Actor;
+package at.finn.games.figures.objects;
+import at.finn.games.figures.Actor;
 import org.newdawn.slick.*;
 public class Rectangle implements Actor
 {

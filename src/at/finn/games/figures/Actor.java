@@ -1,4 +1,4 @@
-package at.finn.games;
+package at.finn.games.figures;
 
 import org.newdawn.slick.Graphics;
 
