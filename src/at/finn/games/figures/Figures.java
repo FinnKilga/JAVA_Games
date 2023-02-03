@@ -1,14 +1,17 @@
 package at.finn.games.figures;
-import at.finn.games.figures.objects.*;
+
+import at.finn.games.figures.objects.Circle;
+import at.finn.games.figures.objects.Ellipse;
+import at.finn.games.figures.objects.Rectangle;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Main extends BasicGame
+public class Figures extends BasicGame
 {
-    public Main(String title)
+    public Figures(String title)
     {
         super(title);
     }
@@ -57,7 +60,7 @@ public class Main extends BasicGame
     public static void main(String[] argv)
     {
         try {
-            AppGameContainer container = new AppGameContainer(new Main("games"));
+            AppGameContainer container = new AppGameContainer(new Figures("games"));
             container.setDisplayMode(800,600,false);
             container.start();
         } catch (SlickException e) {
