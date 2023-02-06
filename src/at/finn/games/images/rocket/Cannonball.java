@@ -3,6 +3,7 @@ package at.finn.games.images.rocket;
 import at.finn.games.Actor;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 
 public class Cannonball implements Actor {
     float x,y;
@@ -10,7 +11,7 @@ public class Cannonball implements Actor {
 
     public Cannonball(float x, float y)
     {
-        this.x = x;
+        this.x = x + 69;
         this.y = y;
     }
 
@@ -23,6 +24,6 @@ public class Cannonball implements Actor {
     @Override
     public void update(GameContainer gameContainer, int delta)
     {
-        this.y -= (float)delta/this.speed;
+            this.y -= (float)delta/this.speed;
     }
 }

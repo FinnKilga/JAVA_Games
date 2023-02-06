@@ -24,13 +24,29 @@ public class RocketMain extends BasicGame
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException
     {
-        this.rocket.update(gameContainer, delta);
+        for (Actor actor:this.actors)
+        {
+            actor.update(gameContainer,delta);
+        }
+
+    }
+    @Override
+    public void keyPressed(int key, char c)
+    {
+        if (key == Input.KEY_SPACE)
+        {
+            Cannonball cb = new Cannonball(this.rocket.getX(),this.rocket.getY());
+            this.actors.add(cb);
+        }
     }
 
         @Override
         public void render(GameContainer gameContainer, Graphics graphics) throws SlickException
     {
-        this.rocket.render(graphics);
+        for (Actor actor:this.actors)
+        {
+            actor.render(graphics);
+        }
     }
     public static void main(String[] argv)
     {
