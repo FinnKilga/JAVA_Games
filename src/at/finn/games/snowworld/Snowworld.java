@@ -1,7 +1,6 @@
 package at.finn.games.snowworld;
 
-import at.finn.games.rocket.Rockets;
-import at.finn.games.snowworld.*;
+import at.finn.games.images.rocket.Rocket;
 import at.finn.games.snowworld.objects.Snowflake;
 import org.newdawn.slick.*;
 
@@ -17,12 +16,11 @@ public class Snowworld extends BasicGame {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
         this.snowflakes = new ArrayList<>();
-        for (int i = 0; i < 0; i++) {
+        for (int i = 0; i < 100; i++) {
             this.snowflakes.add(new Snowflake(Snowflake.Size.big));
             this.snowflakes.add(new Snowflake(Snowflake.Size.medium));
             this.snowflakes.add(new Snowflake(Snowflake.Size.small));
         }
-        this.snowflakes.add(new Rockets());
     }
 
     @Override
