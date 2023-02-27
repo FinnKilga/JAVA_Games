@@ -7,7 +7,7 @@ import org.newdawn.slick.Input;
 
 public class Cannonball implements Actor {
     float x,y;
-    float speed = 5;
+    float speed = 3;
 
     public Cannonball(float x, float y)
     {

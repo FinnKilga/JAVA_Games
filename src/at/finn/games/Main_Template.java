@@ -25,6 +25,13 @@ public class Main_Template extends BasicGame
     {
 
     }
+
+    @Override
+    public void keyPressed(int key, char c)
+    {
+
+    }
+
     public static void main(String[] argv)
     {
         try {
