@@ -10,6 +10,7 @@ public class Paddle implements Actor {
     private float x,y,speed;
     public enum Player{player_1,player_2}
     private Player player;
+    private int points;
 
     public Paddle(Player player)
     {
@@ -24,6 +25,7 @@ public class Paddle implements Actor {
         }
         this.speed = 5;
         this.y = 200;
+        this.points = 0;
     }
 
     @Override
@@ -67,5 +69,21 @@ public class Paddle implements Actor {
             }
         }
 
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(){
+        this.points = this.points+1;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
     }
 }
