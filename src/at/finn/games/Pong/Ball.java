@@ -6,62 +6,75 @@ import org.newdawn.slick.Graphics;
 
 public class Ball implements Actor {
 
-    private float x,y;
+    private double x,y,speed,angle;
+    private int size;
     public enum Direction{left,right}
     private Direction direction;
-    private float speed = 3f;
-    private int size = 30;
-    private double yPaddle;
+    private Paddle paddle1,paddle2;
 
-    public Ball()
+    public Ball(Paddle paddle1,Paddle paddle2)
     {
         this.x = 400;
         this.y = 300;
+        this.speed = 3;
+        this.size = 30;
+        this.paddle1 = paddle1;
+        this.paddle2 = paddle2;
         this.direction = Direction.right;
+        this.angle = 0;
     }
 
 
     @Override
     public void render(Graphics graphics)
     {
-        graphics.fillOval(this.x,this.y,this.size,this.size);
+        graphics.fillOval((float)this.x,(float) this.y,this.size,this.size);
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta)
     {
-        if (this.yPaddle < 150/2)
+        if (this.y <= 0 && this.direction == Direction.right)
         {
-            this.y -= (float) delta / (this.yPaddle + this.speed);
+            this.angle += 90;
+            //y--
+        } else if (this.y <= 0 && this.direction == Direction.left)
+        {
+            this.angle -= 90;
+            //y--
         }
-        if (Direction.left == this.direction)
+        if (this.y >= 600 && this.direction == Direction.right)
         {
-            this.x -= (float) delta / this.speed;
-
+            this.angle -= 90;
+        } else if (this.y >= 600 && this.direction == Direction.left)
+        {
+            this.angle += 90;
         }
-        else if (Direction.right == this.direction)
+        //paddle left hit
+        if (this.direction == Direction.left && this.x <= paddle1.getX())
         {
-            this.x += (float) delta / this.speed;
-            if (this.yPaddle > 150/2)
+            if(this.paddle1.getY() < this.y && this.paddle1.getY() + this.paddle1.getSize() > this.y)
             {
-                this.y += (float) delta / (this.yPaddle-150 + this.speed);
+                //calculate angle
+                this.direction = Direction.right;
+                //send ball back
             }
         }
+        //paddle right hit
+
+        //paddle missed ball
+            //write points --> just call function for the winning paddle
     }
 
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
 
-    public Direction getDirection() {
-        return direction;
-    }
 
-    public float getX() {
+
+
+    public double getX() {
         return x;
     }
 
-    public float getY() {
+    public double getY() {
         return y;
     }
 
@@ -69,7 +82,4 @@ public class Ball implements Actor {
         return size;
     }
 
-    public void setyPaddle(double yPaddle) {
-        this.yPaddle = yPaddle;
-    }
 }
